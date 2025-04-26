@@ -1,4 +1,3 @@
-from click import FileError
 import torch
 import torch.utils
 import trainer
@@ -13,6 +12,19 @@ from transformers import BertModel, BertTokenizer
 import io
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
+
+BERT_CACHE_DIR = "bert_cache"
+
+def get_bert_and_tokenizer():
+    # 如果本地没有缓存，则下载并保存
+    if not os.path.exists(BERT_CACHE_DIR):
+        os.makedirs(BERT_CACHE_DIR, exist_ok=True)
+        BertModel.from_pretrained('bert-base-uncased').save_pretrained(BERT_CACHE_DIR)
+        BertTokenizer.from_pretrained('bert-base-uncased').save_pretrained(BERT_CACHE_DIR)
+    # 从本地加载
+    bert = BertModel.from_pretrained(BERT_CACHE_DIR).to(device)
+    tokenizer = BertTokenizer.from_pretrained(BERT_CACHE_DIR)
+    return bert, tokenizer
 
 def get_arguments():
     """对数据集的位置，模型和训练的配置进行调整"""
@@ -39,8 +51,7 @@ def test_model(args: Namespace):
     with open(model_path, mode="rb") as f:
         buffer = io.BytesIO(f.read())
     model.load_state_dict(torch.load(buffer))
-    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-    bert = BertModel.from_pretrained('bert-base-uncased').to(device)
+    bert, tokenizer = get_bert_and_tokenizer()
     model.eval()
     sentence = input("请输入要测试的句子, 输入为空则自动退出\n")
     while sentence:
@@ -69,8 +80,7 @@ def train(args: Namespace):
     model = model.to(device)
     optimizer = torch.optim.AdamW(params=model.parameters(), lr=args.lr)
     criterion = nn.CrossEntropyLoss()
-    bert = BertModel.from_pretrained('bert-base-uncased').to(device)
-    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+    bert, tokenizer = get_bert_and_tokenizer()
     trained_model = trainer.trainer(device, model, optimizer, criterion, train_dataloader, test_dataloader, bert, args.epochs)
     save_path = "checkpoint"
 
