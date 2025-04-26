@@ -1,0 +1,63 @@
+训练集样本数: 8528
+测试集样本数: 2133
+Epoch 1/20, Loss: 0.6582
+Train Accuracy: 0.6196
+Test Accuracy: 0.7478
+Epoch 2/20, Loss: 0.5752
+Train Accuracy: 0.7481
+Test Accuracy: 0.7656
+Epoch 3/20, Loss: 0.5184
+Train Accuracy: 0.7769
+Test Accuracy: 0.7900
+Epoch 4/20, Loss: 0.4772
+Train Accuracy: 0.7995
+Test Accuracy: 0.7998
+Epoch 5/20, Loss: 0.4442
+Train Accuracy: 0.8124
+Test Accuracy: 0.8106
+Epoch 6/20, Loss: 0.4209
+Train Accuracy: 0.8204
+Test Accuracy: 0.8172
+Epoch 7/20, Loss: 0.4009
+Train Accuracy: 0.8272
+Test Accuracy: 0.8242
+Epoch 8/20, Loss: 0.3884
+Train Accuracy: 0.8282
+Test Accuracy: 0.8289
+Epoch 9/20, Loss: 0.3769
+Train Accuracy: 0.8402
+Test Accuracy: 0.8336
+Epoch 10/20, Loss: 0.3639
+Train Accuracy: 0.8415
+Test Accuracy: 0.8331
+Epoch 11/20, Loss: 0.3563
+Train Accuracy: 0.8478
+Test Accuracy: 0.8368
+Epoch 12/20, Loss: 0.3505
+Train Accuracy: 0.8453
+Test Accuracy: 0.8401
+Epoch 13/20, Loss: 0.3449
+Train Accuracy: 0.8515
+Test Accuracy: 0.8392
+Epoch 14/20, Loss: 0.3362
+Train Accuracy: 0.8564
+Test Accuracy: 0.8425
+Epoch 15/20, Loss: 0.3342
+Train Accuracy: 0.8603
+Test Accuracy: 0.8406
+Epoch 16/20, Loss: 0.3259
+Train Accuracy: 0.8608
+Test Accuracy: 0.8429
+Epoch 17/20, Loss: 0.3208
+Train Accuracy: 0.8644
+Test Accuracy: 0.8434
+Epoch 18/20, Loss: 0.3129
+Train Accuracy: 0.8693
+Test Accuracy: 0.8472
+Epoch 19/20, Loss: 0.3103
+Train Accuracy: 0.8717
+Test Accuracy: 0.8439
+Epoch 20/20, Loss: 0.3082
+Train Accuracy: 0.8727
+Test Accuracy: 0.8439
+模型已成功保存到checkpoint/CNN-20-0.000020-0.2-1-False.pt

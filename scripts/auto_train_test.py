@@ -1,18 +1,17 @@
 import os
 import itertools
 import subprocess
-import re
-import matplotlib.pyplot as plt
 
 # 参数空间
 model_names = ["CNN", "LSTM"]
 epochs_list = [20]
 lr_list = [2e-5, 1e-4]
-num_layers_list = [1, 2]
-dropout_list = [0.2, 0.5]
+num_layers_list = [1, 3]
+dropout_list = [0.0, 0.2, 0.5]
 bidirectional_list = [False, True]
 
-results_dir = "results"
+results_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.dirname(__file__)),"results"))
+print(results_dir)
 os.makedirs(results_dir, exist_ok=True)
 
 def get_result_filename(model_name, epochs, lr, num_layers, dropout, bidirectional=None):

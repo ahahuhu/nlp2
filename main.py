@@ -46,7 +46,6 @@ def test_model(args: Namespace):
         raise FileNotFoundError("模型位置有误或模型参数错误")
     if args.model_name == "CNN":
         model = CNNModel(conv_layers=args.num_layers, dropout=args.dropout)
-    # TODO 加上RNN这里
     model = model.to(device=device)
     with open(model_path, mode="rb") as f:
         buffer = io.BytesIO(f.read())
