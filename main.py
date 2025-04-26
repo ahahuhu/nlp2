@@ -13,7 +13,7 @@ import io
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-BERT_CACHE_DIR = "bert_cache"
+BERT_CACHE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "bert_cache")
 
 def get_bert_and_tokenizer():
     # 如果本地没有缓存，则下载并保存
