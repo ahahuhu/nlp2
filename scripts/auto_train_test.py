@@ -5,7 +5,7 @@ import subprocess
 # 参数空间
 model_names = ["CNN", "LSTM"]
 epochs_list = [20]
-lr_list = [2e-5, 1e-4]
+lr_list = [2e-5]
 num_layers_list = [1, 3]
 dropout_list = [0.0, 0.2, 0.5]
 bidirectional_list = [False, True]
