@@ -7,6 +7,8 @@ import random
 import torch.utils
 import torch.utils.data
 
+BERT_CACHE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "bert_cache")
+
 class SentimentClass(torch.utils.data.Dataset):
     def __init__(self, data, label) -> None:
         super().__init__()
@@ -34,7 +36,7 @@ def collate_fn(batch, tokenizer):
 def get_data_loader(path_neg: str = "data/rt-polarity.neg", path_pos: str = "data/rt-polarity.pos", batch_size: int = 64, train_size: float = 0.8):
     """创建dataloader"""
 
-    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+    tokenizer = BertTokenizer.from_pretrained(BERT_CACHE_DIR, local_files_only=True)
 
     with open(path_neg) as f:
         data_neg = []
