@@ -1,0 +1,6 @@
+训练集样本数: 8528
+测试集样本数: 2133
+Epoch 1/1, Loss: 0.5777
+Train Accuracy: 0.7128
+Test Accuracy: 0.8059
+模型已成功保存到checkpoint/LSTM-1-0.000100-0.2-2-True.pt
