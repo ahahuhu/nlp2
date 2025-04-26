@@ -22,8 +22,8 @@ def get_bert_and_tokenizer():
         BertModel.from_pretrained('bert-base-uncased').save_pretrained(BERT_CACHE_DIR)
         BertTokenizer.from_pretrained('bert-base-uncased').save_pretrained(BERT_CACHE_DIR)
     # 从本地加载
-    bert = BertModel.from_pretrained(BERT_CACHE_DIR).to(device)
-    tokenizer = BertTokenizer.from_pretrained(BERT_CACHE_DIR)
+    bert = BertModel.from_pretrained(BERT_CACHE_DIR, local_files_only=True).to(device)
+    tokenizer = BertTokenizer.from_pretrained(BERT_CACHE_DIR, local_files_only=True)
     return bert, tokenizer
 
 def get_arguments():
