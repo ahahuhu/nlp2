@@ -1,6 +1,0 @@
-训练集样本数: 8528
-测试集样本数: 2133
-Epoch 1/1, Loss: 0.6776
-Train Accuracy: 0.5875
-Test Accuracy: 0.7361
-模型已成功保存到checkpoint/CNN-1-0.000020-0.5-2-False.pt

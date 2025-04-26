@@ -1,6 +1,60 @@
 训练集样本数: 8528
 测试集样本数: 2133
-Epoch 1/1, Loss: 0.6870
-Train Accuracy: 0.5600
-Test Accuracy: 0.7300
-模型已成功保存到checkpoint/CNN-1-0.000020-0.5-1-False.pt
+Traceback (most recent call last):
+  File "/home/wuwen/python_project/nlp2/main.py", line 91, in <module>
+    train(args)
+  File "/home/wuwen/python_project/nlp2/main.py", line 72, in train
+    bert = BertModel.from_pretrained('bert-base-uncased').to(device)
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/site-packages/transformers/modeling_utils.py", line 3613, in from_pretrained
+    config, model_kwargs = cls.config_class.from_pretrained(
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/site-packages/transformers/configuration_utils.py", line 545, in from_pretrained
+    config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/site-packages/transformers/configuration_utils.py", line 574, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/site-packages/transformers/configuration_utils.py", line 633, in _get_config_dict
+    resolved_config_file = cached_file(
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/site-packages/transformers/utils/hub.py", line 403, in cached_file
+    resolved_file = hf_hub_download(
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/site-packages/huggingface_hub/file_download.py", line 862, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/site-packages/huggingface_hub/file_download.py", line 925, in _hf_hub_download_to_cache_dir
+    (url_to_download, etag, commit_hash, expected_size, head_call_error) = _get_metadata_or_catch_error(
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/site-packages/huggingface_hub/file_download.py", line 1376, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/site-packages/huggingface_hub/file_download.py", line 1296, in get_hf_file_metadata
+    r = _request_wrapper(
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/site-packages/huggingface_hub/file_download.py", line 280, in _request_wrapper
+    response = _request_wrapper(
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/site-packages/huggingface_hub/file_download.py", line 303, in _request_wrapper
+    response = get_session().request(method=method, url=url, **params)
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/site-packages/huggingface_hub/utils/_http.py", line 96, in send
+    return super().send(request, *args, **kwargs)
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/site-packages/urllib3/connection.py", line 507, in getresponse
+    httplib_response = super().getresponse()
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/http/client.py", line 1348, in getresponse
+    response.begin()
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/http/client.py", line 316, in begin
+    version, status, reason = self._read_status()
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/http/client.py", line 277, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/socket.py", line 681, in readinto
+    return self._sock.recv_into(b)
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/ssl.py", line 1274, in recv_into
+    return self.read(nbytes, buffer)
+  File "/home/wuwen/miniconda3/envs/cs224n_dfp/lib/python3.8/ssl.py", line 1132, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt

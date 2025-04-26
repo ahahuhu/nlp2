@@ -21,12 +21,14 @@ def get_result_filename(model_name, epochs, lr, num_layers, dropout, bidirection
         fname += f"-{'bi' if bidirectional else 'uni'}"
     return os.path.join(results_dir, fname + ".txt")
 
+FILE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 for model_name in model_names:
     for epochs, lr, num_layers, dropout in itertools.product(epochs_list, lr_list, num_layers_list, dropout_list):
         if model_name == "CNN":
             result_file = get_result_filename(model_name, epochs, lr, num_layers, dropout)
             cmd = [
-                "python", "/home/wuwen/python_project/nlp2/main.py", model_name,
+                "python", f"{FILE_PATH}/main.py", model_name,
                 "--epochs", str(epochs),
                 "--lr", str(lr),
                 "--num_layers", str(num_layers),
@@ -40,7 +42,7 @@ for model_name in model_names:
             for bidirectional in bidirectional_list:
                 result_file = get_result_filename(model_name, epochs, lr, num_layers, dropout, bidirectional)
                 cmd = [
-                    "python", "/home/wuwen/python_project/nlp2/main.py", model_name,
+                    "python", f"{FILE_PATH}/main.py", model_name,
                     "--epochs", str(epochs),
                     "--lr", str(lr),
                     "--num_layers", str(num_layers),
